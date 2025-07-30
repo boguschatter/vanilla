@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Manager - bogus ch@tter</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Krub:wght@400&display=swap" rel="stylesheet">
+</head>
+<body class="admin-page">
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <div class="logo-container">
+                <a href="index.html" class="logo" id="logo">
+                    <div class="logo-text">
+                        bogus<br>ch@tter
+                    </div>
+                </a>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html" class="gallery-link">
+                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20 6h-2.18l-1.41-1.41C16.05 4.23 15.55 4 15 4H9c-.55 0-1.05.23-1.41.59L6.18 6H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 9c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
+                    </svg>
+                    <span>gallery</span>
+                </a>
+                <a href="about.html" class="about-link">
+                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                    </svg>
+                    <span>about</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Admin Content -->
+    <main class="admin-content">
+        <div class="admin-container">
+            <div class="admin-header">
+                <h1>Content Manager</h1>
+                <p>Add, edit, and organize your artwork gallery</p>
+            </div>
+
+            <!-- Add New Artwork Form -->
+            <section class="admin-section">
+                <h2>Add New Artwork</h2>
+                <form id="artworkForm" class="artwork-form">
+                    <div class="form-group">
+                        <label for="artworkTitle">Artwork Title*</label>
+                        <input type="text" id="artworkTitle" name="title" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="artworkImage">Image URL*</label>
+                        <input type="url" id="artworkImage" name="image" required 
+                               placeholder="https://example.com/image.jpg">
+                        <small>Use Unsplash, your own hosting, or any image URL</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="artworkDescription">Description*</label>
+                        <textarea id="artworkDescription" name="description" required 
+                                  placeholder="Describe the artwork, materials used, inspiration, and techniques..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="artworkTags">Tags</label>
+                        <input type="text" id="artworkTags" name="tags" 
+                               placeholder="mixed media, abstract, canvas, acrylic">
+                        <small>Separate tags with commas for search functionality</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="artworkHeight">Image Height (px)</label>
+                        <select id="artworkHeight" name="height">
+                            <option value="1200">Standard (1200px)</option>
+                            <option value="1024">Medium (1024px)</option>
+                            <option value="1086">Tall (1086px)</option>
+                            <option value="1400">Extra Tall (1400px)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Add Artwork</button>
+                        <button type="button" id="previewBtn" class="btn-secondary">Preview</button>
+                        <button type="button" id="clearForm" class="btn-secondary">Clear Form</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Preview Section -->
+            <section class="admin-section" id="previewSection" style="display: none;">
+                <h2>Preview</h2>
+                <div id="artworkPreview" class="artwork-preview"></div>
+            </section>
+
+            <!-- Generated HTML Section -->
+            <section class="admin-section" id="htmlSection" style="display: none;">
+                <h2>Generated HTML</h2>
+                <p>Copy this HTML and paste it into your index.html file in the gallery section:</p>
+                <div class="code-container">
+                    <textarea id="generatedHTML" readonly></textarea>
+                    <button id="copyHTML" class="btn-secondary">Copy HTML</button>
+                </div>
+            </section>
+
+            <!-- Instructions -->
+            <section class="admin-section">
+                <h2>Instructions</h2>
+                <div class="instructions">
+                    <div class="instruction-item">
+                        <h3>1. Add New Artwork</h3>
+                        <p>Fill out the form above with your artwork details. The image URL should point to a high-resolution image of your artwork.</p>
+                    </div>
+                    
+                    <div class="instruction-item">
+                        <h3>2. Preview Your Artwork</h3>
+                        <p>Click "Preview" to see how your artwork will look in the gallery before adding it to your site.</p>
+                    </div>
+                    
+                    <div class="instruction-item">
+                        <h3>3. Copy the HTML</h3>
+                        <p>After creating your artwork entry, copy the generated HTML code and paste it into your index.html file within the gallery section.</p>
+                    </div>
+                    
+                    <div class="instruction-item">
+                        <h3>4. Upload Images</h3>
+                        <p>For the best quality, upload your images to:</p>
+                        <ul>
+                            <li><strong>Unsplash</strong> - Free high-quality images</li>
+                            <li><strong>Your own hosting</strong> - Upload to your server or cloud storage</li>
+                            <li><strong>Image hosting services</strong> - Imgur, Cloudinary, etc.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="instruction-item">
+                        <h3>5. Organizing Your Gallery</h3>
+                        <p>Newest artwork should be added at the top of the gallery section in index.html. This ensures it appears first when visitors load your site.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Links -->
+            <section class="admin-section">
+                <h2>Quick Links</h2>
+                <div class="quick-links">
+                    <a href="https://unsplash.com" target="_blank" class="quick-link">
+                        <h3>Unsplash</h3>
+                        <p>High-quality free images</p>
+                    </a>
+                    <a href="https://www.netlify.com" target="_blank" class="quick-link">
+                        <h3>Netlify</h3>
+                        <p>Free website hosting</p>
+                    </a>
+                    <a href="https://pages.github.com" target="_blank" class="quick-link">
+                        <h3>GitHub Pages</h3>
+                        <p>Free hosting with GitHub</p>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="scripts/admin.js"></script>
+</body>
+</html>
